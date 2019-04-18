@@ -18,17 +18,41 @@ export const rootReducer = (state = initialState, action) => {
     case LOGIN_START:
       return {
         ...state,
-        fetchingData: true
+        fetchingData: true,
+        error: ''
       }
 
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', action.payload.token);
+      localStorage.setItem('token', action.payload.payload);
       return {
         ...state,
-        fetchingData: false
+        fetchingData: false,
+        error: ''
       }
 
     case LOGIN_FAIL:
+      return {
+        ...state,
+        fetchingData: false,
+        error: action.payload
+      }
+
+    case FETCH_DATA_START:
+      return {
+        ...state,
+        fetchingData: true,
+        error: ''
+      }
+
+    case FETCH_DATA_SUCCESS:
+      return {
+        ...state,
+        fetchingData: false,
+        friends: action.payload,
+        error: ''
+      }
+
+    case FETCH_DATA_FAIL:
       return {
         ...state,
         fetchingData: false,
