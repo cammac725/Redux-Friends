@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 
 class FriendsList extends React.Component {
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div className='list'>
-        <h1>Friends List</h1>
+        <h1>All My Friends</h1>
       </div>
     )
   }
@@ -17,4 +21,7 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps, {})(FriendsList);
+export default connect(
+  mapStateToProps,
+  {}
+)(FriendsList);
